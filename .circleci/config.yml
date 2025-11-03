@@ -25,11 +25,14 @@ jobs:
       - run: npm ci
       # snyk scan
       - snyk/scan
-        fail-on-issues: true
-        monitor-on-build: true
-        severity-threshold: high
-        token-variable: SNYK_TOKEN
+          fail-on-issues: true
+          monitor-on-build: true
+          severity-threshold: high
+          token-variable: SNYK_TOKEN
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/guides/orchestrate/workflows/ & https://circleci.com/docs/reference/configuration-reference/#workflows
-workflows: null
+workflows:
+  hello_workflow:
+    jobs:
+      - say-hello
